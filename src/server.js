@@ -10,7 +10,7 @@ import { errorHandler } from './middleware/errorHandler.js';
 import studentsRoutes from './routes/studentsRoutes.js';
 
 const app = express();
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT ?? 3030;
 
 // Глобальні middleware
 app.use(logger); // 1. Логер першим — бачить усі запити
@@ -19,10 +19,6 @@ app.use(cors()); // 3. Дозвіл для запитів з інших доме
 
 // підключаємо групу маршрутів нотатків
 app.use(studentsRoutes);
-
-// Middleware для парсингу JSON
-app.use(express.json());
-app.use(cors());
 
 // Логування часу
 app.use((req, res, next) => {
